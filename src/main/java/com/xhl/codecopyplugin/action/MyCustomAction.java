@@ -15,7 +15,10 @@ import com.xhl.codecopyplugin.constant.LanguageMapper;
 import com.xhl.codecopyplugin.service.GetLoginUrl;
 import com.xhl.codecopyplugin.service.GetShareLink;
 import com.xhl.codecopyplugin.service.LoginPollingService;
+import com.xhl.codecopyplugin.service.UserLogin;
 import com.xhl.codecopyplugin.ui.LoginDialog;
+import com.xhl.codecopyplugin.util.StorageCookie;
+import org.apache.commons.lang3.StringUtils;
 
 import java.awt.datatransfer.StringSelection;
 import java.net.MalformedURLException;
@@ -27,28 +30,20 @@ public class MyCustomAction extends AnAction {
 
         Project project = e.getProject();
 
+        // 判断用户是否登录
+        StorageCookie storageCookie = new StorageCookie(project);
+        String savedCookie = storageCookie.getSavedCookie();
+        boolean isLogin = false;
+        if (StringUtils.isNotEmpty(savedCookie)) {
+            System.out.println(savedCookie);
+            isLogin = true;
+        }
 
         // 登录逻辑
-        // 获取登录二维码、scene
-        if (true) {
-            GetLoginUrl getLoginUrl = new GetLoginUrl();
-            String qrCodeImageUrl = getLoginUrl.getLoginQrCodeUrl();
-            LoginDialog loginDialog = new LoginDialog();
-            try {
-                loginDialog.showLoginDialog(qrCodeImageUrl);
-            } catch (MalformedURLException ex) {
-                throw new RuntimeException(ex);
-            }
-            // 轮询用户是否扫码
-            String scene = getLoginUrl.getLoginScene();
-            System.out.println(scene);
-            LoginPollingService loginPollingService = new LoginPollingService(scene, project);
-            loginPollingService.startPolling();
+        if (!isLogin) {
+            UserLogin user = new UserLogin();
+            user.userLogin(project);
 
-            System.out.println("登录逻辑结束");
-//            loginDialog.closeDialog();
-            // 登录成功后获取登录用户的cookie
-//            System.out.println(savedCookie);
             return; // 登录窗口显示后返回，不继续执行后面的代码
         }
 
@@ -79,7 +74,7 @@ public class MyCustomAction extends AnAction {
         // 调用系统接口，获取分享链接
         GetShareLink getShareLink = new GetShareLink();
 
-        String result = getShareLink.callCodeCopySystemApi(selectedText, language);
+        String result = getShareLink.callCodeCopySystemApi(selectedText, language, project);
 
         // 将链接存储到剪贴板
         CopyPasteManager.getInstance().setContents(new StringSelection(result));

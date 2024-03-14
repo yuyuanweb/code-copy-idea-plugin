@@ -7,6 +7,9 @@ import cn.hutool.json.JSONUtil;
 import lombok.Data;
 
 
+/**
+ * 获取二维码、场景值
+ */
 @Data
 public class GetLoginUrl {
 
