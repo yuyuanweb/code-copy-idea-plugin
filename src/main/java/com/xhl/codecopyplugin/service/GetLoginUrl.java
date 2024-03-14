@@ -61,10 +61,4 @@ public class GetLoginUrl {
         return scene;
     }
 
-    public static void main(String[] args) {
-        GetLoginUrl getLoginUrl = new GetLoginUrl();
-        String loginQrCodeUrl = getLoginUrl.getLoginQrCodeUrl();
-        System.out.println(loginQrCodeUrl);
-
-    }
 }

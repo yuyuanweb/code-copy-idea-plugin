@@ -15,11 +15,7 @@ public class UserLogin {
         GetLoginUrl getLoginUrl = new GetLoginUrl();
         String qrCodeImageUrl = getLoginUrl.getLoginQrCodeUrl();
         LoginDialog loginDialog = new LoginDialog();
-        try {
-            loginDialog.showLoginDialog(qrCodeImageUrl);
-        } catch (MalformedURLException ex) {
-            throw new RuntimeException(ex);
-        }
+        loginDialog.showLoginDialog(qrCodeImageUrl);
         // 轮询用户是否扫码
         String scene = getLoginUrl.getLoginScene();
         System.out.println(scene);

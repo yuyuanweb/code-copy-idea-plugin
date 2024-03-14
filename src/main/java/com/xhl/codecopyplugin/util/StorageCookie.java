@@ -27,4 +27,9 @@ public class StorageCookie {
     public String getSavedCookie() {
         return PropertiesComponent.getInstance(project).getValue("LOGIN_COOKIE", "");
     }
+
+    public void removeSavedCookie() {
+        PropertiesComponent.getInstance(project).setValue("LOGIN_COOKIE", null);
+    }
+
 }

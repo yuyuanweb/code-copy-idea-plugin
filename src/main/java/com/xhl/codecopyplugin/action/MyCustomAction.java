@@ -12,16 +12,12 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.xhl.codecopyplugin.constant.LanguageMapper;
-import com.xhl.codecopyplugin.service.GetLoginUrl;
 import com.xhl.codecopyplugin.service.GetShareLink;
-import com.xhl.codecopyplugin.service.LoginPollingService;
 import com.xhl.codecopyplugin.service.UserLogin;
-import com.xhl.codecopyplugin.ui.LoginDialog;
 import com.xhl.codecopyplugin.util.StorageCookie;
 import org.apache.commons.lang3.StringUtils;
 
 import java.awt.datatransfer.StringSelection;
-import java.net.MalformedURLException;
 
 public class MyCustomAction extends AnAction {
 
@@ -32,6 +28,9 @@ public class MyCustomAction extends AnAction {
 
         // 判断用户是否登录
         StorageCookie storageCookie = new StorageCookie(project);
+//        storageCookie.removeSavedCookie();
+
+
         String savedCookie = storageCookie.getSavedCookie();
         boolean isLogin = false;
         if (StringUtils.isNotEmpty(savedCookie)) {
@@ -39,7 +38,7 @@ public class MyCustomAction extends AnAction {
             isLogin = true;
         }
 
-        // 登录逻辑
+//         登录逻辑
         if (!isLogin) {
             UserLogin user = new UserLogin();
             user.userLogin(project);
