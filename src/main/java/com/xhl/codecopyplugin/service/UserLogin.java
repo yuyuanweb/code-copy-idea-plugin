@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 
 /**
  * 让用户扫码登录
+ * @author daiyifei
  */
 public class UserLogin {
 
@@ -18,10 +19,8 @@ public class UserLogin {
         loginDialog.showLoginDialog(qrCodeImageUrl);
         // 轮询用户是否扫码
         String scene = getLoginUrl.getLoginScene();
-        System.out.println(scene);
         LoginPollingService loginPollingService = new LoginPollingService(scene, project, loginDialog);
         loginPollingService.startPolling();
 
     }
-
 }

@@ -11,7 +11,9 @@ import org.jetbrains.annotations.NotNull;
 @Data
 public class StorageCookie {
 
-    private final Project project; // 每个StorageCookie实例关联一个特定的Project
+
+    // 每个StorageCookie 实例关联一个特定的 Project
+    private final Project project;
 
     // 在构造函数中传入Project实例
     public StorageCookie(Project project) {
@@ -28,6 +30,7 @@ public class StorageCookie {
         return PropertiesComponent.getInstance(project).getValue("LOGIN_COOKIE", "");
     }
 
+    // 移除 cookie
     public void removeSavedCookie() {
         PropertiesComponent.getInstance(project).setValue("LOGIN_COOKIE", null);
     }

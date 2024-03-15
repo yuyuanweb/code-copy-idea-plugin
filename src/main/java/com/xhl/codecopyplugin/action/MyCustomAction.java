@@ -19,6 +19,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.awt.datatransfer.StringSelection;
 
+/**
+ * @author daiyifei
+ */
 public class MyCustomAction extends AnAction {
 
     @Override
@@ -28,8 +31,6 @@ public class MyCustomAction extends AnAction {
 
         // 判断用户是否登录
         StorageCookie storageCookie = new StorageCookie(project);
-//        storageCookie.removeSavedCookie();
-
 
         String savedCookie = storageCookie.getSavedCookie();
         boolean isLogin = false;
@@ -38,11 +39,10 @@ public class MyCustomAction extends AnAction {
             isLogin = true;
         }
 
-//         登录逻辑
+        // 登录逻辑
         if (!isLogin) {
             UserLogin user = new UserLogin();
             user.userLogin(project);
-
             return; // 登录窗口显示后返回，不继续执行后面的代码
         }
 
@@ -50,8 +50,7 @@ public class MyCustomAction extends AnAction {
         // 获取用户选中的代码
         Editor editor = e.getData(PlatformDataKeys.EDITOR);
         String selectedText = null;
-        // 如果没有选中就不显示插件
-//        update(e);
+
         if (editor != null) {
             SelectionModel selectionModel = editor.getSelectionModel();
             selectedText = selectionModel.getSelectedText();
@@ -78,10 +77,7 @@ public class MyCustomAction extends AnAction {
         // 将链接存储到剪贴板
         CopyPasteManager.getInstance().setContents(new StringSelection(result));
 
-        // 给用户一个弹窗提示
-//        Messages.showMessageDialog(result, "分享链接(已复制)", Messages.getInformationIcon());
         // 给用户一个非模态的通知
-
         // 发布通知，它会显示在IDE的右下角
         Notification notification = NOTIFICATION_GROUP.createNotification("分享链接（已复制）", result, NotificationType.INFORMATION);
         Notifications.Bus.notify(notification);
@@ -90,26 +86,6 @@ public class MyCustomAction extends AnAction {
     }
 
 
-    /**
-     * 更新动作
-     *
-     * @param e
-     */
-//
-//    @Override
-//    public void update(AnActionEvent e) {
-//        Editor editor = e.getData(PlatformDataKeys.EDITOR);
-//        boolean isVisible = hasSelectedText(editor);
-//        e.getPresentation().setEnabledAndVisible(isVisible);
-//    }
-//
-//    private boolean hasSelectedText(Editor editor) {
-//        if (editor == null) {
-//            return false;
-//        }
-//        SelectionModel selectionModel = editor.getSelectionModel();
-//        return selectionModel.hasSelection();
-//    }
 
 
     /**

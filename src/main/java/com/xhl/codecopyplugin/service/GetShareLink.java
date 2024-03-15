@@ -22,7 +22,6 @@ public class GetShareLink {
         // 实现调用系统接口的逻辑，返回获取的链接
         // 可以使用 Java 的网络请求库
         // 接口地址
-//        System.out.println("-------------"+selectedText);
         String url = "https://www.codecopy.cn/api/post/add";
 
         // 封装成对象去请求
@@ -45,10 +44,9 @@ public class GetShareLink {
         StorageCookie cookie = new StorageCookie(project);
         String savedCookie = cookie.getSavedCookie();
         System.out.println("保存的cookie：" + savedCookie);
-
         String sendCookie = "SESSION=" + savedCookie;
 
-        // 发送 POST 请求
+        // 发送 POST 请求 带上 cookie 识别用户
         HttpResponse response = HttpRequest.post(url)
                 .header("accept", "application/json")
                 .header("accept-language", "zh-CN,zh;q=0.9")
@@ -75,8 +73,6 @@ public class GetShareLink {
         }
 
         String result = response.body();
-        System.out.println("返回结果" + result);
-
 
         // JSON 解析
         // 取出 JSON 中 data 的值
@@ -84,10 +80,16 @@ public class GetShareLink {
         String link = jsonObject.get("data").toString();
         System.out.println(link);
 
-        return "https://codecopy.cn/post/" + link;  // 替换为实际获取的链接
+        return "https://codecopy.cn/post/" + link;
 
     }
 
+
+    /**
+     * 判断 cookie 是否过期
+     * @param cookie
+     * @return
+     */
 
     public boolean checkIfUserNeedsToLogin(String cookie) {
         String url = "https://www.codecopy.cn/api/user/get/login";

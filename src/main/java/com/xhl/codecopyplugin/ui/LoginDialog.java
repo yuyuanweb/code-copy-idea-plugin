@@ -13,13 +13,14 @@ import java.util.concurrent.ExecutionException;
  */
 public class LoginDialog {
 
-    private JFrame frame; // 成员变量
+    private JFrame frame;
 
     public LoginDialog() {
         frame = new JFrame("代码小抄登录");
         frame.setSize(600, 600);
         frame.setLayout(new BorderLayout());
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // 确保关闭窗口时释放资源
+        // 确保关闭窗口时释放资源
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     public void showLoginDialog(String qrCodeImageUrl) {

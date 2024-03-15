@@ -9,6 +9,7 @@ import lombok.Data;
 
 /**
  * 获取二维码、场景值
+ * @author daiyifei
  */
 @Data
 public class GetLoginUrl {

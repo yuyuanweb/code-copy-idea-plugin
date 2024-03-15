@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * @author daiyifei
+ */
 @NoArgsConstructor
 @Data
 public class CodeSegmentsDTO implements Serializable {

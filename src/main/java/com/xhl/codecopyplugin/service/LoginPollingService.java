@@ -23,14 +23,12 @@ import java.util.concurrent.TimeUnit;
 @Data
 public class LoginPollingService {
     private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private String scene; // 获取的场景值
+    private String scene;
 
     private Project project;
 
     private LoginDialog loginDialog;
 
-    // 假设这是一个成员变量，用于存储cookie
-//    private String savedCookie = null;
     private volatile boolean isPolling = false;
 
     public LoginPollingService(String scene, Project project, LoginDialog loginDialog) {
@@ -52,7 +50,7 @@ public class LoginPollingService {
                     // 检查登录状态
                     boolean loginSuccess = checkLoginStatus(scene);
                     if (loginSuccess) {
-                        // 登录成功，更新UI或执行其他操作
+                        // 登录成功，更新UI
                         onLoginSuccess();
                         // 停止轮询
                         stopPolling();
@@ -80,8 +78,7 @@ public class LoginPollingService {
 
         // 实现检查登录状态的逻辑，返回登录是否成功
         String url = "https://www.codecopy.cn/api/user/login/wx_mp";
-        String requestJson = JSONUtil.createObj()
-                .put("scene", scene)
+        String requestJson = JSONUtil.createObj().set("scene", scene)
                 .toString();
         try {
             HttpResponse response = HttpRequest.post(url)
@@ -113,14 +110,13 @@ public class LoginPollingService {
                 System.out.println("dataField:" + dataField);
                 if (!ObjectUtil.isNull(dataField)) {
                     // 登录成功，保存cookie
-
                     if (cookie != null) {
                         // 保存 cookie 以供后续使用
                         StorageCookie storageCookie = new StorageCookie(project);
                         storageCookie.saveCookie(cookie);
 
                     }
-                    return true; // 返回登录成功
+                    return true;
                 }
             }
         } catch (Exception e) {
@@ -135,7 +131,6 @@ public class LoginPollingService {
         // 登录成功时的操作
         System.out.println("成功登录");
         loginDialog.closeDialog();
-
         Notification notification = NOTIFICATION_GROUP.createNotification("成功登录，快一键分享吧！", NotificationType.INFORMATION);
         Notifications.Bus.notify(notification);
     }

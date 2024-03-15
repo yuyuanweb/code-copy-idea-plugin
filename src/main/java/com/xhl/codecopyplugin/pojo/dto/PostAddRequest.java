@@ -4,6 +4,7 @@ package com.xhl.codecopyplugin.pojo.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -19,6 +20,7 @@ public class PostAddRequest implements Serializable {
     private String codeLanguage;
 
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
 
