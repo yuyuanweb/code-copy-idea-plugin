@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 轮询登录接口
+ * @author daiyifei
  */
 @Data
 public class LoginPollingService {
@@ -39,31 +40,27 @@ public class LoginPollingService {
 
     public void startPolling() {
         isPolling = true;
-        final Runnable poller = new Runnable() {
-            @Override
-            public void run() {
-                if (!isPolling) {
-                    return;
-                }
-                System.out.println("轮询----------------");
-                try {
-                    // 检查登录状态
-                    boolean loginSuccess = checkLoginStatus(scene);
-                    if (loginSuccess) {
-                        // 登录成功，更新UI
-                        onLoginSuccess();
-                        // 停止轮询
-                        stopPolling();
-                    }
-                } catch (Exception e) {
-                    // 处理异常，可能需要根据情况重新开始轮询或停止轮询
+        final Runnable poller = () -> {
+            if (!isPolling) {
+                return;
+            }
+            System.out.println("轮询----------------");
+            try {
+                // 检查登录状态
+                boolean loginSuccess = checkLoginStatus(scene);
+                if (loginSuccess) {
+                    // 登录成功，更新UI
+                    onLoginSuccess();
+                    // 停止轮询
                     stopPolling();
                 }
+            } catch (Exception e) {
+                // 处理异常，可能需要根据情况重新开始轮询或停止轮询
+                stopPolling();
             }
         };
         // 每2秒执行一次
         scheduler.scheduleAtFixedRate(poller, 0, 2, TimeUnit.SECONDS);
-
 
     }
 
@@ -72,6 +69,11 @@ public class LoginPollingService {
         scheduler.shutdown();
     }
 
+    /**
+     * @param scene
+     * 检查用户的登录状态
+     * @return
+     */
     private boolean checkLoginStatus(String scene) {
 
         System.out.println("Checking---------------");
@@ -101,6 +103,7 @@ public class LoginPollingService {
             if (response.isOk()) {
                 List<HttpCookie> cookies = response.getCookies();
                 System.out.println("cookies:" + cookies.get(0).getValue());
+                // 取出后端返回的 cookie
                 String cookie = cookies.get(0).getValue();
 
                 // 解析响应的 JSON
@@ -127,6 +130,10 @@ public class LoginPollingService {
         return false;
     }
 
+
+    /**
+     * 登录成功时的操作
+     */
     private void onLoginSuccess() {
         // 登录成功时的操作
         System.out.println("成功登录");

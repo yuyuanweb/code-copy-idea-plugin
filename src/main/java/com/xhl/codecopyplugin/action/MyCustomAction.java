@@ -33,6 +33,10 @@ public class MyCustomAction extends AnAction {
         StorageCookie storageCookie = new StorageCookie(project);
 
         String savedCookie = storageCookie.getSavedCookie();
+
+        // 调试使用：删除 cookie
+//        storageCookie.removeSavedCookie();
+
         boolean isLogin = false;
         if (StringUtils.isNotEmpty(savedCookie)) {
             System.out.println(savedCookie);
@@ -82,10 +86,7 @@ public class MyCustomAction extends AnAction {
         Notification notification = NOTIFICATION_GROUP.createNotification("分享链接（已复制）", result, NotificationType.INFORMATION);
         Notifications.Bus.notify(notification);
 
-
     }
-
-
 
 
     /**
@@ -94,7 +95,6 @@ public class MyCustomAction extends AnAction {
      * @param e
      * @return
      */
-
     public String getExtension(AnActionEvent e) {
         VirtualFile vFile = e.getData(PlatformCoreDataKeys.VIRTUAL_FILE);
         String fileExtension = vFile != null ? vFile.getExtension() : null;
@@ -104,7 +104,6 @@ public class MyCustomAction extends AnAction {
     /**
      * 创建一个通知组（右下角）
      */
-
     private static final NotificationGroup NOTIFICATION_GROUP =
             new NotificationGroup("Custom Notification Group",
                     NotificationDisplayType.BALLOON, true);

@@ -47,9 +47,30 @@ public class LoginDialog {
                 try {
                     BufferedImage image = get();
                     if (image != null) {
+                        // 创建包含文本和图片的面板
+                        JPanel panel = new JPanel();
+                        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+                        panel.add(Box.createVerticalStrut(20)); // 调整这个值以改变间隙大小
+
+                        // 添加文本标签到面板
+                        JLabel textLabel = new JLabel("请扫描二维码登录您的代码小抄账号");
+                        textLabel.setAlignmentX(Component.CENTER_ALIGNMENT); // 文本居中
+                        panel.add(textLabel);
+
+
+                        // 添加间隙
+                        panel.add(Box.createVerticalStrut(30)); // 调整这个值以改变间隙大小
+
+                        // 添加图片标签到面板
                         ImageIcon icon = new ImageIcon(image);
                         JLabel label = new JLabel(icon);
-                        frame.add(label, BorderLayout.CENTER);
+                        label.setAlignmentX(Component.CENTER_ALIGNMENT); // 图片居中
+                        panel.add(label);
+
+                        // 将面板添加到frame中，并确保它在中心位置显示
+                        frame.add(panel, BorderLayout.CENTER);
+
                         frame.validate(); // 更新frame的布局
                         frame.repaint(); // 重新绘制frame
                     }
