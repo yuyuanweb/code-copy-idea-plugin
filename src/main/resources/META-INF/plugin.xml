@@ -14,11 +14,12 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-     欢迎大家使用插件！！<br>
-     代码小抄体验地址：https://www.codecopy.cn/<br>
-    <em>这是一款提供给代码小抄用户快捷分享的插件，科技改变生活</em>
+    Welcome to our plugin! Experience a streamlined coding process with CodeCopy.
+    Quick sharing for CodeCopy users: https://www.codecopy.cn/
+    <em>This plugin is designed to transform your coding experience by providing
+    quick access to a treasure trove of code snippets. Technology changes life.</em>
+]]></description>
 
-    ]]></description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
