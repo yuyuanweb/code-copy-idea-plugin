@@ -14,10 +14,18 @@ import java.util.Objects;
 
 /**
  * 请求接口获取到分享链接
- *
  * @author daiyifei
  */
 public class GetShareLink {
+
+    /**
+     * 调用系统接口获取分享链接
+     *
+     * @param selectedText
+     * @param language
+     * @param project
+     * @return
+     */
     public String callCodeCopySystemApi(String selectedText, String language, Project project) {
         // 实现调用系统接口的逻辑，返回获取的链接
         // 可以使用 Java 的网络请求库

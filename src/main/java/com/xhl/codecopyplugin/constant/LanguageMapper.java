@@ -7,6 +7,7 @@ import cn.hutool.json.JSONUtil;
 import java.util.HashMap;
 
 /**
+ * 从云端动态获取语言哈希表
  * @author daiyifei
  */
 public class LanguageMapper {

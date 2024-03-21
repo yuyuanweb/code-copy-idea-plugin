@@ -10,6 +10,7 @@ import java.util.concurrent.ExecutionException;
 
 /**
  * @author daiyifei
+ * 登录 UI
  */
 public class LoginDialog {
 

@@ -20,6 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.awt.datatransfer.StringSelection;
 
 /**
+ * 入口文件，实现主动作
  * @author daiyifei
  */
 public class MyCustomAction extends AnAction {

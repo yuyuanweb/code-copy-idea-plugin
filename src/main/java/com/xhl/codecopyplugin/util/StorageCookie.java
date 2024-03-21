@@ -3,8 +3,10 @@ package com.xhl.codecopyplugin.util;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.project.Project;
 import lombok.Data;
+
 /**
  * @author daiyifei
+ * 全局保存cookie
  */
 @Data
 public class StorageCookie {

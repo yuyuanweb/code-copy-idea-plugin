@@ -12,6 +12,12 @@ import java.net.MalformedURLException;
  */
 public class UserLogin {
 
+
+    /**
+     * 用户登录逻辑封装
+     * @param project
+     */
+
     public void userLogin(Project project){
         GetLoginUrl getLoginUrl = new GetLoginUrl();
         String qrCodeImageUrl = getLoginUrl.getLoginQrCodeUrl();

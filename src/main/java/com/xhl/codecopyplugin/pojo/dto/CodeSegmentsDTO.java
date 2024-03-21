@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * 封装代码段codeSegments
  * @author daiyifei
  */
 @NoArgsConstructor

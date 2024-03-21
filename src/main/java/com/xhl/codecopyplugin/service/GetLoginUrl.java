@@ -9,6 +9,7 @@ import lombok.Data;
 
 /**
  * 获取二维码、场景值
+ *
  * @author daiyifei
  */
 @Data
@@ -16,6 +17,11 @@ public class GetLoginUrl {
 
     private HttpResponse httpResponse = null;
 
+    /**
+     * 获取登录二维码
+     *
+     * @return
+     */
     public String getLoginQrCodeUrl() {
         // 构造请求URL
         String url = "https://www.codecopy.cn/api/user/login/wx_mp/get_scene";
@@ -51,6 +57,12 @@ public class GetLoginUrl {
 
         return qrCode;
     }
+
+    /**
+     * 获取场景值
+     *
+     * @return
+     */
 
     public String getLoginScene() {
 

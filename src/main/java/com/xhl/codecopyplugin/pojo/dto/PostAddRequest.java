@@ -8,6 +8,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
+ * 封装帖子新增请求
  * @author daiyifei
  */
 @NoArgsConstructor
