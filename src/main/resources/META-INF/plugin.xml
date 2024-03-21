@@ -5,7 +5,7 @@
 
     <!-- Public plugin name should be written in Title Case.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-    <name>CodeCopyPlugin</name>
+    <name>CodeCopy</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="yupi@yuyuanweb.com" url="https://www.yuyuanweb.com/">yuyuanweb</vendor>
