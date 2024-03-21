@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 /**
  * 从云端动态获取语言哈希表
+ *
  * @author daiyifei
  */
 public class LanguageMapper {
@@ -29,7 +30,6 @@ public class LanguageMapper {
     public static String getLanguage(String key) {
         return map.getOrDefault(key, "plain_text");
     }
-
 
 
 }
