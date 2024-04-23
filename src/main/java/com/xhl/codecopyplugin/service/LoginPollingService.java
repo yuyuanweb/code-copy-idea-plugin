@@ -144,6 +144,5 @@ public class LoginPollingService {
 
 
     private static final NotificationGroup NOTIFICATION_GROUP =
-            new NotificationGroup("Custom Notification Group",
-                    NotificationDisplayType.BALLOON, true);
+            NotificationGroupManager.getInstance().getNotificationGroup("Custom Notification Group");
 }
