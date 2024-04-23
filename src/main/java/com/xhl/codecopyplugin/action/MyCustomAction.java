@@ -21,6 +21,7 @@ import java.awt.datatransfer.StringSelection;
 
 /**
  * 入口文件，实现主动作
+ *
  * @author daiyifei
  */
 public class MyCustomAction extends AnAction {
@@ -93,21 +94,17 @@ public class MyCustomAction extends AnAction {
     /**
      * 获取当前文件的后缀
      *
-     * @param e
-     * @return
      */
     public String getExtension(AnActionEvent e) {
         VirtualFile vFile = e.getData(PlatformCoreDataKeys.VIRTUAL_FILE);
-        String fileExtension = vFile != null ? vFile.getExtension() : null;
-        return fileExtension;
+        return vFile != null ? vFile.getExtension() : null;
     }
 
     /**
      * 创建一个通知组（右下角）
      */
     private static final NotificationGroup NOTIFICATION_GROUP =
-            new NotificationGroup("Custom Notification Group",
-                    NotificationDisplayType.BALLOON, true);
+            NotificationGroupManager.getInstance().getNotificationGroup("Custom Notification Group");
 
 
 }
