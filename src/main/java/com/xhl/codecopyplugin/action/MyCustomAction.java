@@ -21,6 +21,7 @@ import java.awt.datatransfer.StringSelection;
 
 /**
  * 入口文件，实现主动作
+ *
  * @author daiyifei
  */
 public class MyCustomAction extends AnAction {
@@ -106,8 +107,7 @@ public class MyCustomAction extends AnAction {
      * 创建一个通知组（右下角）
      */
     private static final NotificationGroup NOTIFICATION_GROUP =
-            new NotificationGroup("Custom Notification Group",
-                    NotificationDisplayType.BALLOON, true);
+            NotificationGroupManager.getInstance().getNotificationGroup("Custom Notification Group");
 
 
 }

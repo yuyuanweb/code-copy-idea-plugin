@@ -28,7 +28,7 @@
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <notificationGroup id="Custom Notification Group" displayType="BALLOON" isLogByDefault="true"/>
     </extensions>
     <actions>
         <!--        <action id="001" class="com.example.demo.FirstTest" text="通知" description="一个测试的例子">-->
