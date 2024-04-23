@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.xhl"
-version = "1.3-SNAPSHOT"
+version = "1.4-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -39,7 +39,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("231")
+        sinceBuild.set("201")
         untilBuild.set("241.*")
     }
 
