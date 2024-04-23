@@ -94,13 +94,10 @@ public class MyCustomAction extends AnAction {
     /**
      * 获取当前文件的后缀
      *
-     * @param e
-     * @return
      */
     public String getExtension(AnActionEvent e) {
         VirtualFile vFile = e.getData(PlatformCoreDataKeys.VIRTUAL_FILE);
-        String fileExtension = vFile != null ? vFile.getExtension() : null;
-        return fileExtension;
+        return vFile != null ? vFile.getExtension() : null;
     }
 
     /**
