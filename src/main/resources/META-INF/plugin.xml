@@ -14,12 +14,12 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    <h2>插件简介</h2>
-    该插件的设计考虑到了开发人员在进行多人协作开发时面临的挑战，尤其是在需要共享代码片段、进行代码审查或即时将本地代码备份到云端存储的场景中，提供了一个极为便利的解决方案。此外，插件支持<a href="https://www.codecopy.cn">代码小抄</a>系统上所有可选的编程语言。
-    <h2>如何使用</h2>
-    <p>1）选中我们需要分享的代码，右键选中代码小抄插件</p>
-    <p>2）如果是第一次使用，需要先登录代码小抄系统，在弹出界面中扫码登录即可</p>
-    <p>3）登录成功后，再次分享即可上传代码到自己的账号下并获取到分享链接（自动复制到剪切板中）</p>
+        <h2>Plugin Introduction</h2>
+        <p>This plugin is designed to address the challenges developers face during collaborative development, especially in scenarios where sharing code snippets, conducting code reviews, or instantly backing up local code to cloud storage is necessary. It provides an extremely convenient solution. Additionally, the plugin supports all optional programming languages on the <a href="https://www.codecopy.cn">CodeCopy</a> system.</p>
+        <h2>How to Use</h2>
+        <p>1) Select the code we need to share, right-click to select the CodeCopy plugin.</p>
+        <p>2) If it's the first time using it, you need to log in to the CodeCopy system. Scan the code in the pop-up interface to log in.</p>
+        <p>3) After successfully logging in, share again to upload the code to your own account and obtain the sharing link (automatically copied to the clipboard).</p>
 ]]></description>
 
 
