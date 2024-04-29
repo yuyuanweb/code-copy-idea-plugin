@@ -5,6 +5,7 @@ import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.intellij.openapi.project.Project;
+import com.xhl.codecopyplugin.constant.RequestConstant;
 import com.xhl.codecopyplugin.pojo.dto.CodeSegmentsDTO;
 import com.xhl.codecopyplugin.pojo.dto.PostAddRequest;
 import com.xhl.codecopyplugin.util.StorageCookie;
@@ -30,7 +31,7 @@ public class GetShareLink {
         // 实现调用系统接口的逻辑，返回获取的链接
         // 可以使用 Java 的网络请求库
         // 接口地址
-        String url = "https://www.codecopy.cn/api/post/add";
+        String url = RequestConstant.HOST + "post/add";
 
         // 封装成对象去请求
         PostAddRequest postAddRequest = new PostAddRequest();
@@ -100,7 +101,7 @@ public class GetShareLink {
      */
 
     public boolean checkIfUserNeedsToLogin(String cookie) {
-        String url = "https://www.codecopy.cn/api/user/get/login";
+        String url = RequestConstant.HOST + "user/get/login";
         HttpResponse response = HttpRequest.get(url)
                 .header("accept", "*/*")
                 .header("accept-language", "zh-CN,zh;q=0.9")

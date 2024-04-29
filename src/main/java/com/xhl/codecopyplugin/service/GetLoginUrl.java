@@ -4,6 +4,7 @@ import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.xhl.codecopyplugin.constant.RequestConstant;
 import lombok.Data;
 
 
@@ -24,7 +25,7 @@ public class GetLoginUrl {
      */
     public String getLoginQrCodeUrl() {
         // 构造请求URL
-        String url = "https://www.codecopy.cn/api/user/login/wx_mp/get_scene";
+        String url = RequestConstant.HOST + "user/login/wx_mp/get_scene";
         // 构造请求
         HttpResponse response = HttpRequest.post(url)
                 .header("accept", "*/*")

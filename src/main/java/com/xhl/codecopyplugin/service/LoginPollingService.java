@@ -7,6 +7,7 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.intellij.notification.*;
 import com.intellij.openapi.project.Project;
+import com.xhl.codecopyplugin.constant.RequestConstant;
 import com.xhl.codecopyplugin.ui.LoginDialog;
 import com.xhl.codecopyplugin.util.StorageCookie;
 import lombok.Data;
@@ -19,6 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 轮询登录接口
+ *
  * @author daiyifei
  */
 @Data
@@ -70,8 +72,7 @@ public class LoginPollingService {
     }
 
     /**
-     * @param scene
-     * 检查用户的登录状态
+     * @param scene 检查用户的登录状态
      * @return
      */
     private boolean checkLoginStatus(String scene) {
@@ -79,7 +80,7 @@ public class LoginPollingService {
         System.out.println("Checking---------------");
 
         // 实现检查登录状态的逻辑，返回登录是否成功
-        String url = "https://www.codecopy.cn/api/user/login/wx_mp";
+        String url = RequestConstant.HOST + "user/login/wx_mp";
         String requestJson = JSONUtil.createObj().set("scene", scene)
                 .toString();
         try {

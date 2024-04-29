@@ -15,7 +15,7 @@ public class LanguageMapper {
     private static HashMap<String, String> map;
 
     static {
-        String url = "https://www.codecopy.cn/api/post/language/mapper";
+        String url = RequestConstant.HOST + "post/language/mapper";
 
         // 发送 POST 请求
         String s = HttpUtil.get(url);
