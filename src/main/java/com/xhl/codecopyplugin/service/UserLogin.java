@@ -1,10 +1,7 @@
 package com.xhl.codecopyplugin.service;
 
-import com.intellij.notification.*;
 import com.intellij.openapi.project.Project;
 import com.xhl.codecopyplugin.ui.LoginDialog;
-
-import java.net.MalformedURLException;
 
 /**
  * 让用户扫码登录
@@ -27,6 +24,5 @@ public class UserLogin {
         String scene = getLoginUrl.getLoginScene();
         LoginPollingService loginPollingService = new LoginPollingService(scene, project, loginDialog);
         loginPollingService.startPolling();
-
     }
 }
